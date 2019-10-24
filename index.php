@@ -32,6 +32,8 @@
             $r2 = rand(3,6); while ($r2 == $r1){$r2 = rand(3,6);}
             $r3 = rand(3,6); while ($r3 == $r1 || $r3 == $r2){$r3 = rand(3,6);}
             $r4 = rand(3,6); while ($r4 == $r1 || $r4 == $r2 || $r4 == $r3){$r4 = rand(3,6);}
+            
+            $correcta = $listaPreguntas[$preguntaElegida][7];
         
 //            $numeros = range(3, 6);
 //            shuffle($numeros);
@@ -65,9 +67,10 @@
                     </button> 
                     <br>
                     <br>
-                    <button id="continuar" class="btn btn-default btn btn-block btn-primary" onclick="recarga();">
+<!--                    <button id="continuar" class="btn btn-default btn btn-block btn-primary" onclick="recarga();">
                        Continuar
-                    </button>
+                    </button>-->
+                    <div id="continuar"></div>
                     </div>
                 </div>
                 <div class="col-md-3"></div>
@@ -77,19 +80,20 @@
         
         <script src="js/jquery-1.12.0.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        
          <script>
             
-            var respuesta = <?php echo $correcta ?>;
+            var respuesta = '<?php echo $correcta; ?>';
             
             function recarga(){
                 location.reload();
             }
             function chequeaRespuesta(_respuesta){
                 if( respuesta === _respuesta){
-                    $('#continuar').css("background-color", "#ff0000");
+                   $('#continuar').append('<button class ="btn btn-info" onclick="recarga();">Continuar</button>');
                 }
                 else{
-                    $('#continuar').css("background-color", "#08f39");
+                    $('#continuar').append('<button class ="btn btn-danger" onclick="recarga();">Continuar</button>');
                 }
             }
         </script>

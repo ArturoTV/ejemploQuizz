@@ -2,6 +2,6 @@
 $servidor = '127.0.0.1';
 $bd = 'ejemploquiz';
 $usuario_mysql = 'root';
-$clave_mysql = '';
+$clave_mysql = 'root';
 ?>
 

@@ -44,25 +44,31 @@
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                    <button class="btn btn-block btn-warning disabled">
+                    <button  class="btn btn-block btn-warning disabled">
                         <?php echo $listaPreguntas[$preguntaElegida][2];?>
                     </button>
                     <br><br>
-                    <button class="btn btn-block btn-primary " onclick="chequeaRespuesta();">
+                    <button id="1" class="btn btn-block btn-primary " onclick="chequeaRespuesta('1');">
                         <?php echo $listaPreguntas[$preguntaElegida][$r1];?>
                     </button> 
                     <br><br>
-                    <button class="btn btn-block btn-primary ">
+                    <button id="2" class="btn btn-block btn-primary " onclick="chequeaRespuesta('2');">
                         <?php echo $listaPreguntas[$preguntaElegida][$r2];?>
                     </button> 
                     <br><br>
-                    <button class="btn btn-block btn-primary ">
+                    <button id="3"class="btn btn-block btn-primary " onclick="chequeaRespuesta('3')">
                         <?php echo $listaPreguntas[$preguntaElegida][$r3];?>
                     </button> 
                     <br><br>                                                            
-                    <button class="btn btn-block btn-primary ">
+                    <button id="4" class="btn btn-block btn-primary " onclick="chequeaRespuesta('4');">
                         <?php echo $listaPreguntas[$preguntaElegida][$r4];?>
                     </button> 
+                    <br>
+                    <br>
+                    <button id="continuar" class="btn btn-default btn btn-block btn-primary" onclick="recarga();">
+                       Continuar
+                    </button>
+                    </div>
                 </div>
                 <div class="col-md-3"></div>
             </div>
@@ -71,5 +77,21 @@
         
         <script src="js/jquery-1.12.0.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+         <script>
+            
+            var respuesta = <?php echo $correcta ?>;
+            
+            function recarga(){
+                location.reload();
+            }
+            function chequeaRespuesta(_respuesta){
+                if( respuesta === _respuesta){
+                    $('#continuar').css("background-color", "#ff0000");
+                }
+                else{
+                    $('#continuar').css("background-color", "#08f39");
+                }
+            }
+        </script>
     </body>
 </html>
